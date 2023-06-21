@@ -1,68 +1,50 @@
-module.exports = {
-  env: {
-    browser: true,
-    es2021: true
+{
+  "env": {
+    "browser": true,
+    "es2022": true
   },
-  extends: ['plugin:react/recommended', 'standard', 'plugin:react/jsx-runtime'],
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true
+  "extends": [
+    "eslint:recommended",
+    "standard",
+    "prettier",
+    "next/core-web-vitals",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:react-hooks/recommended",
+    "plugin:jsx-a11y/recommended"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
     },
-    ecmaVersion: 11,
-    sourceType: 'module'
+    "sourceType": "module"
   },
-  plugins: ['react'],
-  rules: {
-    'react/prop-types': 0,
-    semi: ['error', 'always'],
-    'padding-line-between-statements': [
-      'error',
-      { blankLine: 'always', prev: 'function', next: '*' },
-      { blankLine: 'always', prev: ['const', 'let', 'var'], next: '*' },
-      { blankLine: 'always', prev: 'import', next: ['const', 'let', 'var'] },
+  "plugins": [
+    "react",
+    "react-hooks",
+    "jsx-a11y",
+    "simple-import-sort",
+    "import"
+  ],
+  "rules": {
+    "no-unused-vars": ["warn", "all"],
+    "react/jsx-sort-props": [
+      "warn",
       {
-        blankLine: 'never',
-        prev: ['const', 'let', 'var'],
-        next: ['const', 'let', 'var']
+        "callbacksLast": true,
+        "shorthandFirst": true,
+        "noSortAlphabetically": false,
+        "reservedFirst": true
       }
     ],
-    'react/jsx-uses-react': 'error',
-    'react/jsx-uses-vars': 'error',
-    'no-async-promise-executor': ['off', 'always'],
-    'multiline-ternary': ['off', 'always'],
-    'no-unused-vars': ['warn', 'all'],
-    'array-callback-return': ['off', { allowImplicit: true }],
-    'import/order': [
-      'warn',
-      {
-        groups: [
-          'type',
-          'builtin',
-          'object',
-          'external',
-          'internal',
-          'parent',
-          'sibling',
-          'index'
-        ],
-        pathGroups: [
-          {
-            pattern: '~/**',
-            group: 'external',
-            position: 'after'
-          }
-        ],
-        'newlines-between': 'always'
-      }
-    ],
-    'react/jsx-sort-props': [
-      'warn',
-      {
-        callbacksLast: true,
-        shorthandFirst: true,
-        noSortAlphabetically: false,
-        reservedFirst: true
-      }
-    ]
+    "react/no-array-index-key": "error",
+    "react/hook-use-state": "error",
+    "no-cond-assign": ["error", "always"],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "off",
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "import/no-relative-parent-imports": "error",
+    "prefer-destructuring": "error"
   }
-};
+}
