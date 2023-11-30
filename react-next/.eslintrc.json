@@ -24,7 +24,8 @@
     "react-hooks",
     "jsx-a11y",
     "simple-import-sort",
-    "import"
+    "import",
+    "perfectionist"
   ],
   "rules": {
     "no-unused-vars": ["warn", "all"],
@@ -45,6 +46,17 @@
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
     "import/no-relative-parent-imports": "error",
-    "prefer-destructuring": "error"
+    "prefer-destructuring": "error",
+    "perfectionist/sort-objects": [
+      "error",
+      {
+        "type": "natural",
+        "order": "asc",
+        "groups": ["id", "unknown"],
+        "custom-groups": {
+          "id": "id"
+        }
+      }
+    ]
   }
 }
